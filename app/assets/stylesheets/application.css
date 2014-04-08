@@ -11,3 +11,17 @@
  *= require_self
  *= require_tree .
  */
+.user-gravatar {
+    display: inline-block;
+    width: 32px;
+    position: relative;
+    margin: 0;
+}
+
+.user-gravatar img {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    top: -22px;
+}

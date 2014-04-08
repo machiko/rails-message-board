@@ -1,24 +1,24 @@
 <div class="hero-unit">
   <h1>Ruby On Rails</h1>
   <p>留言板系統</p>
-  <p>
-    <a class="btn btn-primary btn-large">
-      用戶登入
-    </a>
-  </p>
 </div>
-<%= form_for :message, :html => {:class => 'form'} do |f| %>
-  <p>
-    <%= f.label :標題 %><br>
-    <%= f.text_field :title %>
-  </p>
 
-  <p>
-    <%= f.label :留言內容 %><br>
-    <%= f.text_area :text %>
-  </p>
+<div class="row-fluid">
+  <div class="message">
+    <%= form_for :message, :html => {:class => 'form'} do |f| %>
+      <p>
+        <%= f.label :標題 %><br>
+        <%= f.text_field :title %>
+      </p>
 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+      <p>
+        <%= f.label :留言內容 %><br>
+        <%= f.text_area :text %>
+      </p>
+
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  </div>
+</div>
