@@ -5,7 +5,8 @@
 
 <div class="row-fluid">
   <div class="message">
-    <%= form_for :message, :html => {:class => 'form'} do |f| %>
+    <%= form_for :message, url: message_index_path, :html => {:class => 'form'} do |f| %>
+      <%= f.hidden_field :author, :value => current_user.email if current_user %>
       <p>
         <%= f.label :標題 %><br>
         <%= f.text_field :title %>
@@ -13,7 +14,7 @@
 
       <p>
         <%= f.label :留言內容 %><br>
-        <%= f.text_area :text %>
+        <%= f.text_area :content %>
       </p>
 
       <p>
@@ -21,4 +22,14 @@
       </p>
     <% end %>
   </div>
+  <ul class="unstyled" style="margin-left: 20px;">
+    <% @messages.each do |message| %>
+      <li style="margin-bottom:10px;">
+        <%= image_tag(message.user.avatar, width: 50) %>
+        <%= message.author %>
+        <%= link_to message.title, message %>
+        <%= link_to '刪除', message_path(message.id), method: :delete, confirm: "確定刪除？" if current_user.email == message.author if current_user %>
+      </li>
+    <% end %>
+  </ul>
 </div>

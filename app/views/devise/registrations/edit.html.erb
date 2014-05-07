@@ -1,0 +1,34 @@
+<div class="hero-unit">
+  <h1>Edit User</h1>
+</div>
+<%= form_for resource, as: resource_name, url: registration_path(:user), html: {class: 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :Email, class: "control-label", for: "inputEmail" %>
+    <div class="controls">
+      <%= f.text_field :email, :placeholder => "Email", autofocus: true %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password, :class => "control-label", :for => "inputPassword" %>
+    <div class="controls">
+      <%= f.password_field :password, :placeholder => "password" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :"Confirm Password", :class => "control-label", :for => "inputPassword" %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :"avatar", :class => "control-label", :for => "avatar" %>
+    <div class="controls">
+      <%= f.file_field :avatar %>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" class="btn">update</button>
+    </div>
+  </div>
+<% end %>
